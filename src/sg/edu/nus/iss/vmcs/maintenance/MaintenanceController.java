@@ -142,8 +142,8 @@ public class MaintenanceController {
             mpanel.displayTotalCash(vl);
             machctrl.displayCoinStock();
             // the cash qty current is displayed in the Maintenance panel needs to be update to be 0;
-            // not required.
-            //mpanel.updateCurrentQtyDisplay(Store.CASH, 0);
+            // is required.
+            mpanel.updateCurrentQtyDisplay(Store.CASH, 0);
         } catch (VMCSException e) {
             System.out.println("MaintenanceController.transferAll:" + e);
         }
@@ -178,6 +178,8 @@ public class MaintenanceController {
             return;
         }
 
+        mpanel.initCollectCash();
+        mpanel.initTotalCash();
         mpanel.setActive(MaintenancePanel.DIALOG, true);
 
     }
